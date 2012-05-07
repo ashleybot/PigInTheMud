@@ -13,12 +13,10 @@ second = 1
 i = GetMeMyNumber(first, second)
 while  i <= 4000000 do
   puts i
-  if  i % 2 == 0
-    sum += i
-  end
+  sum += i if i.even?
   first = second
   second = i
   i = GetMeMyNumber(first, second)
 end
 
-puts "TOTAL " + sum.to_s
+puts "TOTAL #{sum}"
