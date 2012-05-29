@@ -19,10 +19,10 @@ usage() ->
   halt(1).
 
 pfac(N) ->
-  lists:flatten([pfac(N, 2)]).
-pfac(N, D) when (N rem D == 0) and (N > 1) ->
-  [D, pfac(round(N / D), D + 1)];
-pfac(N, D) when N > 1 ->
-  [pfac(N, D + 1)];
-pfac(_N, _D) ->
-  [].
+  pfac(N, 2, []).
+pfac(N, D, Factors) when (N rem D == 0) and (N > 1) ->
+  pfac(round(N / D), D + 1, [D|Factors]);
+pfac(N, D, Factors) when N > 1 ->
+  pfac(N, D + 1, Factors);
+pfac(_N, _D, Factors) ->
+  Factors.
