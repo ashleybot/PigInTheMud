@@ -20,7 +20,7 @@ usage() ->
 
 pfac(N) ->
   pfac(N, 2, []).
-pfac(N, D, Factors) when (N rem D == 0) and (N > 1) ->
+pfac(N, D, Factors) when N rem D == 0, N > 1 ->
   pfac(round(N / D), D + 1, [D|Factors]);
 pfac(N, D, Factors) when N > 1 ->
   pfac(N, D + 1, Factors);
